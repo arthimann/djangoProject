@@ -1,23 +1,28 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from categories.forms import CategoriesForm
 from django.utils.decorators import decorator_from_middleware
-from .Http.Middleware.add import AddCategoryMiddleware
+from categories.middleware.add import AddCategoryMiddleware
+from django.http import HttpResponse, HttpResponseRedirect
+from categories.models import Categories
 
 
 # Create your views here.
 def index_view(request, *args, **kwargs):
-    return render(request, 'categories/list.html', {})
+    category_entities = Categories.objects.all()
+    return render(request, 'categories/list.html', {
+        'category_entities': category_entities
+    })
 
 
-@decorator_from_middleware(AddCategoryMiddleware)
+# @decorator_from_middleware(AddCategoryMiddleware)
 def add_view(request, *args, **kwargs):
-    form = CategoriesForm()
+    form = CategoriesForm(request.POST or None)
 
     if request.method == 'POST':
-        print("wtf", request.POST['title'], request.POST['description'])
+        if form.is_valid():
+            form.save()
+            form = CategoriesForm()
 
     return render(request, 'categories/add.html', {
         'form': form,
     })
-
