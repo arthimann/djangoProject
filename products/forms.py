@@ -16,7 +16,7 @@ class AddProductsForm(forms.ModelForm):
             'rows': 5
         }))
 
-    price = forms.IntegerField(max_value=11, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    price = forms.IntegerField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     category_id = ModelChoiceField(
         queryset=Categories.objects.all(),
         required=True,

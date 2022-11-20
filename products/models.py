@@ -3,12 +3,12 @@ from categories.models import Categories
 
 
 class Products(models.Model):
-    category = models.ForeignKey(Categories, on_delete=models.DO_NOTHING, null=False)
+    category_id = models.ForeignKey(Categories, on_delete=models.DO_NOTHING, db_column='category_id')
     title = models.CharField(max_length=255)
     description = models.TextField()
     price = models.IntegerField()
-    created_at = models.DateTimeField(auto_now_add=True, null=False)
-    updated_at = models.DateTimeField(auto_now=True, null=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'products'

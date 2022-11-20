@@ -17,7 +17,4 @@ class CategoriesForm(forms.ModelForm):
     def clean_title(self, *args, **kwargs):
         title = self.cleaned_data.get('title')
 
-        if 'asd' not in title:
-            raise forms.ValidationError('wtf dude!?')
-
         return title

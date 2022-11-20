@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import AddProductsForm
+from django.db import connection, OperationalError
 
 
 def add_view(request, *args, **kwargs):
