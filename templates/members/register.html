@@ -1,0 +1,28 @@
+{% include 'layout/base.html' %}
+
+{% block content %}
+
+<div class="col-4 mx-auto my-3">
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+
+        {% for field in form.visible_fields %}
+        <fieldset>
+            <div class="mb-3">
+                <label class="form-label">{{ field.label_tag }}</label>
+                <div>
+                    {{ field }}
+                    {{ field.errors }}
+                </div>
+            </div>
+        </fieldset>
+        {% endfor %}
+
+
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary">Login</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

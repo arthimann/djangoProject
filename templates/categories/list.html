@@ -1,8 +1,12 @@
-{% include 'layout/header.html' %}
+{% include 'layout/base.html' %}
 
 {% block content %}
 
-    <h1>Categories</h1>
+    <h1>
+        Categories
+        <a href="{% url 'categories_add' %}" class="btn btn-outline-primary">add</a>
+    </h1>
+
 
     <div class="list-group">
         {% for item in category_entities%}

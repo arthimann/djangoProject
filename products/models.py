@@ -1,9 +1,9 @@
 from django.db import models
-from categories.models import Categories
+from categories.models import Category
 
 
-class Products(models.Model):
-    category_id = models.ForeignKey(Categories, on_delete=models.DO_NOTHING, db_column='category_id')
+class Product(models.Model):
+    category_id = models.ForeignKey(Category, on_delete=models.DO_NOTHING, db_column='category_id')
     title = models.CharField(max_length=255)
     description = models.TextField()
     price = models.IntegerField()

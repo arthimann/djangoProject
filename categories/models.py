@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Categories(models.Model):
+class Category(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.TextField(max_length=255)
     description = models.TextField(max_length=255)

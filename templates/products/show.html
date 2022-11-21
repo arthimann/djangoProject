@@ -1,0 +1,15 @@
+{% include 'layout/base.html' %}
+
+{% block content %}
+<h1>{{ product_entities.title|title }}</h1>
+<p>{{ product_entities.description }}</p>
+
+<blockquote>
+    {{ product_entities.created_at|date:"d-m-Y H:i:s" }}
+</blockquote>
+
+<div>
+    <a class="btn btn-outline-secondary" href="{{ back_url }}">Back</a>
+    <a class="btn btn-outline-warning" href="./edit/">Edit</a>
+</div>
+{% endblock %}

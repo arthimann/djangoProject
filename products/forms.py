@@ -1,6 +1,6 @@
 from django import forms
-from .models import Products
-from categories.models import Categories
+from .models import Product
+from categories.models import Category
 
 
 class ModelChoiceField(forms.ModelChoiceField):
@@ -18,12 +18,14 @@ class AddProductsForm(forms.ModelForm):
 
     price = forms.IntegerField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     category_id = ModelChoiceField(
-        queryset=Categories.objects.all(),
+        queryset=Category.objects.all(),
         required=True,
         empty_label='-- Select --',
         to_field_name='id',
     )
 
     class Meta:
-        model = Products
+        model = Product
         fields = ['title', 'description', 'price', 'category_id']
+
+
