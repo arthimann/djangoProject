@@ -1,13 +1,8 @@
-{% include 'layout/header.html' %}
-
-{% block content %}
-
-
-<form method="post">
+<hr>
+<form action="http://127.0.0.1:8000/comments/1/add/" method="post">
     {% csrf_token %}
-    <legend>Add New Category</legend>
-
-    {% for field in form %}
+    {{ form.product_id }}
+    {% for field in form.visible_fields %}
     <fieldset>
         <div class="mb-3">
             <label class="form-label">{{ field.label_tag }}</label>
@@ -20,5 +15,3 @@
     {% endfor %}
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
-{% endblock %}

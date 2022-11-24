@@ -3,6 +3,7 @@ from .forms import AddProductsForm
 from .models import Product
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from comments.forms import AddProductComment
 
 
 def index_view(request, *args, **kwargs):
@@ -15,9 +16,11 @@ def index_view(request, *args, **kwargs):
 
 def show_view(request, *args, **kwargs):
     product_entities = Product.objects.get(id=kwargs['product_id'])
+    comment_form = AddProductComment(None)
 
     return render(request, 'products/show.html', {
         'product_entities': product_entities,
+        'form': comment_form,
         'back_url': f"{request.scheme}://{request.get_host()}/products"
     })
 

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import LoginForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
+from .forms import UserRegistrationForm
 
 
 def login_view(request, *args, **kwargs):
@@ -27,7 +27,7 @@ def logout_view(request, *args, **kwargs):
 
 
 def register_view(request, *args, **kwargs):
-    form = UserCreationForm(request.POST or None)
+    form = UserRegistrationForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
