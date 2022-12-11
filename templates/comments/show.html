@@ -1,0 +1,13 @@
+<h2>Comments</h2>
+
+{% for comment in comments %}
+    <section class="card mt-1">
+        <div class="card-body">
+            <small class="text-muted"># {{ comment.id }}</small>
+            <p class="m-0">{{ comment.comment }}</p>
+            <div class="text-end">
+                <small class="text-muted">{{ comment.created_at|date:'d-m-Y H:i' }}</small>
+            </div>
+        </div>
+    </section>
+{% endfor %}
