@@ -1,9 +1,11 @@
-<hr>
-<form action="http://127.0.0.1:8000/comments/1/add/" method="post">
-    {% csrf_token %}
-    {{ form.product_id }}
+{% include 'layout/base.html' %}
+
+{% block content %}
+
+<form method="post" enctype="multipart/form-data">
     <fieldset>
-    {% for field in form.visible_fields %}
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
         <div class="mb-3">
             <label class="form-label">{{ field.label_tag }}</label>
             <div>
@@ -11,7 +13,9 @@
                 {{ field.errors }}
             </div>
         </div>
-    {% endfor %}
+        {% endfor %}
     </fieldset>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+{% endblock %}

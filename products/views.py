@@ -39,6 +39,7 @@ def add_view(request, *args, **kwargs):
     })
 
 
+@login_required(login_url='/members/')
 def edit_view(request, *args, **kwargs):
     form_entity = Product.objects.get(id=kwargs['product_id'])
     form = AddProductsForm(request.POST or None, instance=form_entity)

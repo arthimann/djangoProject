@@ -1,0 +1,12 @@
+{% include 'layout/base.html' %}
+
+{% block content %}
+{% if auth %}
+<div>
+    <a href="create/" class="btn btn-sm btn-primary">Add New Image</a>
+    <hr>
+</div>
+{% endif %}
+
+<h2>Gallery</h2>
+{% endblock %}

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'products',
     'members',
     'comments',
+    'gallery',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,9 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/'
+
+MEDIA_URL = '/public/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'public')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
