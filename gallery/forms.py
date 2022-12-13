@@ -1,9 +1,9 @@
 from django import forms
-from .models import CreateModel
+from .models import GalleryModel
 
 class CreateForm(forms.ModelForm):
     file = forms.FileField(label='File to Upload')
 
     class Meta:
-        model = CreateModel
+        model = GalleryModel
         fields = ('file',)

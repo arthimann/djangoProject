@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from .forms import AddProductComment
-from products.models import Product
+from .forms import StoreCommentForm
+from products.models import ProductModel
 
 
-def add_view(request, *args, **kwargs):
-    form = AddProductComment(request.POST or None)
-    form.instance.product_id = Product.objects.get(id=kwargs['product_id'])
+def store_view(request, *args, **kwargs):
+    form = StoreCommentForm(request.POST or None)
+    form.instance.product_id = ProductModel.objects.get(id=kwargs['product_id'])
     form.instance.author = request.user.id
 
     if form.is_valid():

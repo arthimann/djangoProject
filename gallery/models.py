@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class CreateModel(models.Model):
+class GalleryModel(models.Model):
     file = models.FileField(upload_to='images/', null=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

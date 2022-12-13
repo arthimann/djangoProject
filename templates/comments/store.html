@@ -1,0 +1,17 @@
+<hr>
+<form action="{{store_url}}" method="post">
+    {% csrf_token %}
+    {{ form.product_id }}
+    <fieldset>
+    {% for field in form.visible_fields %}
+        <div class="mb-3">
+            <label class="form-label">{{ field.label_tag }}</label>
+            <div>
+                {{ field }}
+                {{ field.errors }}
+            </div>
+        </div>
+    {% endfor %}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

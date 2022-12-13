@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Comment
+from .models import CommentModel
 
-# Register your sub_modules here.
-admin.register(Comment)
+
+admin.register(CommentModel)

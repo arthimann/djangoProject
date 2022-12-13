@@ -1,8 +1,8 @@
 from django import forms
-from .models import Comment
+from .models import CommentModel
 
 
-class AddProductComment(forms.ModelForm):
+class StoreCommentForm(forms.ModelForm):
     comment = forms.CharField(widget=forms.Textarea(
         attrs={
             'class': 'form-control',
@@ -10,5 +10,5 @@ class AddProductComment(forms.ModelForm):
         }))
 
     class Meta:
-        model = Comment
+        model = CommentModel
         fields = ('comment',)

@@ -1,0 +1,26 @@
+{% include 'layout/base.html' %}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+
+    {% for field in form.visible_fields %}
+    <fieldset>
+        <div class="mb-3">
+            <label class="form-label">{{ field.label_tag }}</label>
+            <div>
+                {{ field }}
+                {{ field.errors }}
+            </div>
+        </div>
+    </fieldset>
+    {% endfor %}
+    {% if edit %}
+        <button type="submit" class="btn btn-warning">Edit</button>
+    {% else %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    {% endif %}
+</form>
+
+{% endblock %}

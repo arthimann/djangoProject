@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect
-from .forms import CreateForm
 from django.contrib.auth.decorators import login_required
+from .forms import CreateForm
+from .models import GalleryModel
 
 
 def index_view(request):
+    gallery_entities = GalleryModel.objects.all()
     return render(request, 'gallery/index.html', {
         'auth': request.user.is_authenticated,
+        'gallery_entities': gallery_entities,
     })
 
 
@@ -18,7 +21,7 @@ def create_view(request):
         return redirect(request.META.get('HTTP_REFERER'))
 
 
-    return render(request, 'gallery/create.html', {
+    return render(request, 'gallery/store.html', {
         'form': form
     })
 

@@ -2,6 +2,7 @@
 
 {% block content %}
 {% for product in product_entities %}
+<a href="store/" class="btn btn-sm btn-primary">Add Product</a>
 <hr>
 <a href="{{product.id}}">
     <h2 class="display-6">{{product.title}}</h2>

@@ -55,6 +55,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+)
+
 ROOT_URLCONF = 'djangoProject.urls'
 
 TEMPLATES = [
@@ -134,7 +138,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/'
 
-MEDIA_URL = '/public/'
+MEDIA_URL = 'public/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'public')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
