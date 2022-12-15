@@ -13,3 +13,5 @@ class CategoryModel(models.Model):
         index_together = (
             ('created_at', 'updated_at')
         )
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'

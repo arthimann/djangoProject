@@ -14,3 +14,5 @@ class CommentModel(models.Model):
         index_together = (
             ('created_at', 'updated_at')
         )
+        verbose_name = 'Comment'
+

@@ -57,6 +57,7 @@ MIDDLEWARE = [
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
+    'django.core.context_processors.static',
 )
 
 ROOT_URLCONF = 'djangoProject.urls'
@@ -138,8 +139,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/'
 
-MEDIA_URL = 'public/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'public')
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+MEDIA_URL = '/public/images/'
+MEDIA_ROOT = BASE_DIR / 'public/'
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static'
+# ]

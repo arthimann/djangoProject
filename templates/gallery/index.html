@@ -8,12 +8,15 @@
 </div>
 {% endif %}
 
-{% for item in gallery_entities %}
-<div>
-    {% load static %}
-    <img src="{% get_media_prefix %}{{ item.file }}" alt="">
-    {{ item.created_at|date:'d-m-Y H:i' }}
+<div class="row">
+    {% for item in gallery_entities %}
+    {% if item.file %}
+    <div class="col-4 mx-auto">
+        {% load static %}
+        <img class="img-thumbnail" src="{% get_media_prefix %}{{ item.file }}" alt="">
+        <p class="text-right"><small class="text-muted">{{ item.created_at|date:'d-m-Y H:i' }}</small></p>
+    </div>
+    {% endif %}
+    {% endfor %}
 </div>
-{% endfor %}
-
 {% endblock %}

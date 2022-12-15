@@ -1,3 +1,10 @@
 from django.contrib import admin
+from .models import ProductModel
 
-# Register your sub_modules here.
+
+class ProductsAdmin(admin.ModelAdmin):
+    list_display = ['title', 'price', 'created_at']
+    ordering = ['created_at']
+
+
+admin.site.register(ProductModel, ProductsAdmin)
