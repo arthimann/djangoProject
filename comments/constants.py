@@ -1,0 +1,6 @@
+DB_TABLE = 'comments'
+RELATED_NAME = 'comments'
+FOREIGN_KEY_DB_COLUMN = 'product_id'
+COL_NAME_CREATED_AT = 'created_at'
+COL_NAME_UPDATED_AT = 'updated_at'
+VERBOSE_NAME = 'Comment'

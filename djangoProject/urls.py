@@ -28,6 +28,7 @@ urlpatterns = [
     path('members/', include('members.urls'), name='members'),
     path('comments/', include('comments.urls'), name='comments'),
     path('gallery/', include('gallery.urls'), name='gallery'),
+    path('posts/', include('posts.urls'), name='posts'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
